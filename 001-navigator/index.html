@@ -4,10 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Navigator</title>
+    <link rel="stylesheet" href="../style/common.css" />
+    <style>
+      #app {
+        margin: 4rem auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      .os-list {
+        display: flex;
+        margin: 2rem;
+        gap: 1rem;
+      }
+      .os-btn.selected {
+        background-color: dodgerblue;
+        color: white;
+      }
+    </style>
   </head>
   <body>
+    <section id="app">
+      <h2>접속한 OS 정보</h2>
+      <ul class="os-list">
+        <li><button class="os-btn macOS">macOS</button></li>
+        <li><button class="os-btn Windows">Windows</button></li>
+        <li><button class="os-btn Linux">Linux</button></li>
+      </ul>
+    </section>
     <script>
-      console.log(navigator.userAgentData);
+      const userOS = navigator.userAgentData.platform;
+      document.querySelector(`.os-btn.${userOS}`).classList.add("selected");
     </script>
   </body>
 </html>
